@@ -16,14 +16,20 @@ export class News extends Component {
     category: PropTypes.string,
   };
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       articles: [],
       loading: false,
       page: 1,
     };
+    document.title =
+      this.capitalizeFirstLetter(this.props.category) + " - NewsNest";
   }
+
+  capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
 
   async updateNews() {
     const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=25a6fd0894394cc7989db44d1545a5a4&page=${this.state.page}&pageSize=${this.props.pageSize}`;
@@ -55,7 +61,13 @@ export class News extends Component {
     return (
       <>
         <div className="container my-3">
-          <h1 className="text-center">News Nest - Top Headlines</h1>
+          <h1
+            className="text-center"
+            style={{ marginTop: "35px", marginBottom: "35px" }}
+          >
+            NewsNest - Top {this.capitalizeFirstLetter(this.props.category)}{" "}
+            Headlines
+          </h1>
           {this.state.loading && <Spinner />}
           <div className="row">
             {!this.state.loading &&
