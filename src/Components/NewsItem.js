@@ -2,7 +2,8 @@ import React, { Component } from "react";
 
 export class NewsItem extends Component {
   render() {
-    let { title, description, imageurl, newsurl, author, date, source } = this.props;
+    let { title, description, imageurl, newsurl, author, date, source } =
+      this.props;
     return (
       <div className="my-3">
         <div className="card">
@@ -20,7 +21,12 @@ export class NewsItem extends Component {
             <h5 className="card-title">{title}...</h5>
 
             <p className="card-text">{description}...</p>
-            <span class="position-absolute top-0 translate-middle badge rounded-pill bg-secondary" style={{zIndex:1, left:'90%'}}>{source}</span>
+            <span
+              class="position-absolute top-0 translate-middle badge rounded-pill bg-secondary"
+              style={{ zIndex: 1, left: "90%" }}
+            >
+              {source}
+            </span>
             <p className="card-text">
               <small className="text-muted">
                 By {author ? author : "Unknown"} on{" "}
