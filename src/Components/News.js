@@ -99,6 +99,9 @@ export class News extends Component {
                             : "https://image.shutterstock.com/image-illustration/breaking-news-minimalistic-logo-on-260nw-1298244646.jpg"
                         }
                         newsurl={element.url}
+                        author={element.author}
+                        date={element.publishedAt}
+                        source={element.source.name}
                       />
                     </div>
                   )
